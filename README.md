@@ -46,5 +46,5 @@ The names of the script and tf files are different because I saved them to push 
 I'll leave instances working to let you see them. I didn't add the task definition here. Tell me please if needed.
 ---------------------------------------------------------------------------------------------------------------------------------
 Thank you for your attention)
-http://18.197.210.234:8888/
-http://3.121.225.193:8888/
+Instance 1    http://18.197.210.234:8888/
+Instance 2    http://3.121.225.193:8888/
