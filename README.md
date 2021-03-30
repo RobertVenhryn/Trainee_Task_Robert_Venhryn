@@ -1,3 +1,9 @@
+There is my project (Trainee task definition)
+Created by Robert Venhryn
+Let's start
+<(￣︶￣)>
+---------------------------------------------------------------------------------------------------------------------------------
+
 Terraform file you can find above. The is the beginning:
 
 ![Screenshot_1](https://user-images.githubusercontent.com/75696130/113060587-86b63f00-91b9-11eb-9b9b-7914ee3fe2a9.png)
@@ -20,7 +26,7 @@ Set-Item WSMan:localhost\client\trustedhosts -value *
 
 There are some configuration with firewall on instances in Terraform ("user_data = <<EOF" line)
 
-the script has done its job
+Finally, the script has done its job:
 
 ![Screenshot_5](https://user-images.githubusercontent.com/75696130/113061774-422ba300-91bb-11eb-9782-30b7b37eefd6.png)
 
@@ -37,7 +43,8 @@ Configuration of instance
 ![Screenshot_8](https://user-images.githubusercontent.com/75696130/113062054-cbdb7080-91bb-11eb-8feb-40c5f8a25741.png)
 
 The names of script and tf files are different because I save them to push to git. The original are example.tf and site_creating.ps1
-I'll leave instances working to let you see
+I'll leave instances working to let you see them.
+---------------------------------------------------------------------------------------------------------------------------------
 Thank you for your attention)
 http://18.197.210.234:8888/
 http://3.121.225.193:8888/
