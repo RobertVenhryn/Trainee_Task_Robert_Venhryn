@@ -1,5 +1,5 @@
-There is my project (Trainee task definition)
-Created by Robert Venhryn
+There is my project (Trainee task definition).
+Created by Robert Venhryn.
 Let's start
 <(￣︶￣)>
 ---------------------------------------------------------------------------------------------------------------------------------
@@ -10,11 +10,11 @@ Terraform file you can find above. The is the beginning:
 
 ![Screenshot_2](https://user-images.githubusercontent.com/75696130/113060638-9897e200-91b9-11eb-95bf-94ca47987dcc.png)
 
-Targets are unhealthy yet
+Targets are unhealthy yet:
 
 ![Screenshot_3](https://user-images.githubusercontent.com/75696130/113060838-e1e83180-91b9-11eb-839f-10fbde9a1c90.png)
 
-After that, I run my mega script: .\site_creating.ps1 (it will be above in the folder, so you can see it). there are mistakes because I delete folders that don't exist yet. It doesn't cause any issues
+After that, I run my mega script: .\site_creating.ps1 (it will be above in the folder, so you can see it). there are mistakes because I delete folders that don't exist yet. It doesn't cause any issues.
 
 ![Screenshot_4](https://user-images.githubusercontent.com/75696130/113061280-76529400-91ba-11eb-8f51-d29d01555446.png)
 
@@ -30,15 +30,15 @@ Finally, the script has done its job:
 
 ![Screenshot_5](https://user-images.githubusercontent.com/75696130/113061774-422ba300-91bb-11eb-9782-30b7b37eefd6.png)
 
-And we've got our WebSites
+And we've got our WebSites:
 
 ![Screenshot_6](https://user-images.githubusercontent.com/75696130/113061876-6d15f700-91bb-11eb-8f25-0e363ffae142.png)
 
-Turning back to the load balancer and targets, they are healthy now
+Turning back to the load balancer and targets, they are healthy now:
 
 ![Screenshot_7](https://user-images.githubusercontent.com/75696130/113061945-92a30080-91bb-11eb-88b7-db6f5bc6f142.png)
 
-Configuration of instance
+Configuration of instance:
 
 ![Screenshot_8](https://user-images.githubusercontent.com/75696130/113062054-cbdb7080-91bb-11eb-8feb-40c5f8a25741.png)
 
