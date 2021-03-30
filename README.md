@@ -42,8 +42,8 @@ Configuration of instance:
 
 ![Screenshot_8](https://user-images.githubusercontent.com/75696130/113062054-cbdb7080-91bb-11eb-8feb-40c5f8a25741.png)
 
-The names of script and tf files are different because I save them to push to git. The original are example.tf and site_creating.ps1
-I'll leave instances working to let you see them.
+The names of the script and tf files are different because I saved them to push to git. The original are: example.tf and site_creating.ps1.
+I'll leave instances working to let you see them. I didn't add the task definition here. Tell me please if needed.
 ---------------------------------------------------------------------------------------------------------------------------------
 Thank you for your attention)
 http://18.197.210.234:8888/
