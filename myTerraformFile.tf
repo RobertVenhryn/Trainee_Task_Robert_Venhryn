@@ -1,12 +1,12 @@
 provider "aws" {
-    access_key = "--------------" // put credentials here
-    secret_key = "--------------" // put credentials here
+    access_key = "------" // put credentials here
+    secret_key = "------" // put credentials here
     region = "eu-central-1"
 }
 
 ## Create VPC ##
 resource "aws_vpc" "terraform-vpc" {
-  cidr_block       = "172.16.0.0/16"
+  cidr_block       = "10.0.0.0/16"
   enable_dns_hostnames = true
   tags = {
     Name = "terraform-demo-vpc"
@@ -113,8 +113,9 @@ output "aws_security_gr_id" {
 ## Create Subnet ##
 resource "aws_subnet" "main_subnet" {
   vpc_id     = aws_vpc.terraform-vpc.id
-  cidr_block = "172.16.10.0/24"
-//  availability_zone = "eu-central-1a"
+  cidr_block = "10.0.2.0/28"
+  availability_zone = "eu-central-1a"
+  map_public_ip_on_launch = true
 
   tags = {
     Name = "MainSubnet"
@@ -156,6 +157,7 @@ resource "aws_route_table_association" "public1" {
 resource "aws_instance" "terraform_inst1" {
   ami = "ami-0fbc0724a0721c688"
   instance_type = "t2.micro"
+  private_ip = "10.0.2.4"
   vpc_security_group_ids = [
     aws_security_group.terraform_private_sg.id]
   subnet_id = aws_subnet.main_subnet.id
@@ -183,6 +185,7 @@ resource "aws_instance" "terraform_inst1" {
 resource "aws_instance" "terraform_inst2" {
     ami = "ami-0fbc0724a0721c688"
     instance_type = "t2.micro"
+    private_ip = "10.0.2.5"
     vpc_security_group_ids =  [ aws_security_group.terraform_private_sg.id ]
     subnet_id = aws_subnet.main_subnet.id
     key_name               = "terraform-demo" // create a pem key and put in the same folder
@@ -222,30 +225,38 @@ resource "aws_lb" "test" {
 
 resource "aws_lb_target_group" "test" {
   name     = "tf-example-lb-tg"
-  port     = 80
+  port     = 8888
   protocol = "TCP"
+  target_type = "ip"
   vpc_id   = aws_vpc.terraform-vpc.id
-}
-
-resource "aws_vpc" "testvpc" {
-  cidr_block = "10.0.0.0/16"
+  depends_on = [
+    aws_lb.test
+  ]
+  health_check {
+        interval = 10
+        path = "/"
+        protocol = "HTTP"
+        port = 8888
+    }
 }
 
 resource "aws_lb_target_group_attachment" "tgattach1" {
   target_group_arn = aws_lb_target_group.test.arn
-  target_id        = aws_instance.terraform_inst1.id
-  port             = 80
+  target_id        = aws_instance.terraform_inst1.private_ip
+  port             = 8888
 }
 
 resource "aws_lb_target_group_attachment" "tgattach2" {
   target_group_arn = aws_lb_target_group.test.arn
-  target_id        = aws_instance.terraform_inst2.id
-  port             = 80
+  target_id        = aws_instance.terraform_inst2.private_ip
+  port             = 8888
 }
+
+
 
 resource "aws_lb_listener" "listener" {
   load_balancer_arn       = aws_lb.test.arn
-      port                = 80
+      port                = 8888
       protocol            = "TCP"
       default_action {
         target_group_arn = aws_lb_target_group.test.arn

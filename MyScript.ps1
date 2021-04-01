@@ -1,11 +1,11 @@
 ##The first computer Credentials##
 $userName1 = "Administrator"
-$password1 = ConvertTo-SecureString '---------------' -AsPlainText -Force
-$remoteComputer1 = "18.197.210.234"
+$password1 = ConvertTo-SecureString '--------' -AsPlainText -Force
+$remoteComputer1 = "3.65.227.85"
 ##The second computer Credentials##
 $userName2 = "Administrator"
-$password2 = ConvertTo-SecureString '-------------' -AsPlainText -Force
-$remoteComputer2 = "3.121.225.193"
+$password2 = ConvertTo-SecureString '--------' -AsPlainText -Force
+$remoteComputer2 = "18.185.79.201"
 Clear-Host
 #Can cause some security issues on the host machine! Needed to connect
 Set-Item WSMan:localhost\client\trustedhosts -value * -force
@@ -49,7 +49,7 @@ Invoke-Command -ComputerName $remoteComputer1 -scriptblock {
    #Remove-item "C:\MySite\Default.htm" -Recurse -Force -Confirm:$false
    } -Credential $cred1
  $txt = Get-Content -Raw -Path "D:\google drive\GlobalLogic\powershellscript\index.html"
- Invoke-Command -Session $session1 -ScriptBlock { Param($Txt) New-Item -Path "C:\MySite\index.html" -Value $txt }  -ArgumentList $txt
+ Invoke-Command -Session $session1 -ScriptBlock { Param($Txt) New-Item -Path "C:\MySite\index.html" -Value $txt -Force }  -ArgumentList $txt
  Disconnect-PSSession $session1 | Out-Null
 
 
@@ -92,5 +92,5 @@ Invoke-Command -ComputerName $remoteComputer2 -scriptblock {
    #Remove-item "C:\MySite\Default.htm" -Recurse -Force -Confirm:$false
    } -Credential $cred2
  $txt = Get-Content -Raw -Path "D:\google drive\GlobalLogic\powershellscript\index.html"
- Invoke-Command -Session $session2 -ScriptBlock { Param($Txt) New-Item -Path "C:\MySite\index.html" -Value $txt }  -ArgumentList $txt
+ Invoke-Command -Session $session2 -ScriptBlock { Param($Txt) New-Item -Path "C:\MySite\index.html" -Value $txt -Force }  -ArgumentList $txt
  Disconnect-PSSession $session2 | Out-Null

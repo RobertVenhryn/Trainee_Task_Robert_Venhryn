@@ -10,10 +10,6 @@ Terraform file you can find above. The is the beginning:
 
 ![Screenshot_2](https://user-images.githubusercontent.com/75696130/113060638-9897e200-91b9-11eb-95bf-94ca47987dcc.png)
 
-Targets are unhealthy yet:
-
-![Screenshot_3](https://user-images.githubusercontent.com/75696130/113060838-e1e83180-91b9-11eb-839f-10fbde9a1c90.png)
-
 After that, I run my mega script: .\site_creating.ps1 (it will be above in the folder, so you can see it). there are mistakes because I delete folders that don't exist yet. It doesn't cause any issues.
 
 ![Screenshot_4](https://user-images.githubusercontent.com/75696130/113061280-76529400-91ba-11eb-8f51-d29d01555446.png)
@@ -30,21 +26,32 @@ Finally, the script has done its job:
 
 ![Screenshot_5](https://user-images.githubusercontent.com/75696130/113061774-422ba300-91bb-11eb-9782-30b7b37eefd6.png)
 
-And we've got our WebSites:
+And we've got our WebSite:
 
-![Screenshot_6](https://user-images.githubusercontent.com/75696130/113061876-6d15f700-91bb-11eb-8f25-0e363ffae142.png)
+![Screenshot_6](https://user-images.githubusercontent.com/75696130/113304323-985b2c00-930a-11eb-9b89-216a4a40ecef.png)
+
 
 Turning back to the load balancer and targets, they are healthy now:
 
-![Screenshot_7](https://user-images.githubusercontent.com/75696130/113061945-92a30080-91bb-11eb-88b7-db6f5bc6f142.png)
+![Screenshot_7](https://user-images.githubusercontent.com/75696130/113304479-be80cc00-930a-11eb-9eb9-e65825c80910.png)
 
 Configuration of instance:
 
-![Screenshot_8](https://user-images.githubusercontent.com/75696130/113062054-cbdb7080-91bb-11eb-8feb-40c5f8a25741.png)
+![Screenshot_8](https://user-images.githubusercontent.com/75696130/113304659-ea03b680-930a-11eb-9939-72901c2a8fdf.png)
+
 
 The names of the script and tf files are different because I saved them to push to git. The original are: example.tf and site_creating.ps1.
 I'll leave instances working to let you see them. I didn't add the task definition here. Tell me please if needed.
 ---------------------------------------------------------------------------------------------------------------------------------
 Thank you for your attention)
-Instance 1    http://18.197.210.234:8888/
-Instance 2    http://3.121.225.193:8888/
+My network load balancer:   
+
+The link:
+http://test-lb-tf-1677be3945597eae.elb.eu-central-1.amazonaws.com:8888/
+
+
+![Screenshot_9](https://user-images.githubusercontent.com/75696130/113305143-68605880-930b-11eb-9617-0f4206c26bbd.png)
+
+Instance 1    http://3.65.227.85:8888/
+
+Instance 2    http://18.185.79.201:8888/
