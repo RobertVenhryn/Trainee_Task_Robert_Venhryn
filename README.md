@@ -47,7 +47,7 @@ Thank you for your attention)
 My network load balancer:   
 
 The link:
-http://test-lb-tf-1677be3945597eae.elb.eu-central-1.amazonaws.com:8888/
+http://test-lb-tf-740451f005f3c398.elb.eu-central-1.amazonaws.com/
 
 
 ![Screenshot_9](https://user-images.githubusercontent.com/75696130/113508807-c5058280-955a-11eb-8447-bef9f794097d.png)
