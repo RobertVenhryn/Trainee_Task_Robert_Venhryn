@@ -28,7 +28,7 @@ Finally, the script has done its job:
 
 And we've got our WebSite:
 
-![Screenshot_6](https://user-images.githubusercontent.com/75696130/113304323-985b2c00-930a-11eb-9b89-216a4a40ecef.png)
+![Screenshot_6](https://user-images.githubusercontent.com/75696130/113508763-82dc4100-955a-11eb-86ac-ac4795a60dd2.png)
 
 
 Turning back to the load balancer and targets, they are healthy now:
@@ -37,7 +37,7 @@ Turning back to the load balancer and targets, they are healthy now:
 
 Configuration of instance:
 
-![Screenshot_8](https://user-images.githubusercontent.com/75696130/113304659-ea03b680-930a-11eb-9939-72901c2a8fdf.png)
+![Screenshot_8](https://user-images.githubusercontent.com/75696130/113508779-a0a9a600-955a-11eb-9e0f-d38289cfe1df.png)
 
 
 The names of the script and tf files are different because I saved them to push to git. The original are: example.tf and site_creating.ps1.
@@ -50,8 +50,4 @@ The link:
 http://test-lb-tf-1677be3945597eae.elb.eu-central-1.amazonaws.com:8888/
 
 
-![Screenshot_9](https://user-images.githubusercontent.com/75696130/113305143-68605880-930b-11eb-9617-0f4206c26bbd.png)
-
-Instance 1    http://3.65.227.85:8888/
-
-Instance 2    http://18.185.79.201:8888/
+![Screenshot_9](https://user-images.githubusercontent.com/75696130/113508807-c5058280-955a-11eb-8447-bef9f794097d.png)
