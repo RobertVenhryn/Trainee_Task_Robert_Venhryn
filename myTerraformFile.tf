@@ -1,6 +1,6 @@
 provider "aws" {
-    access_key = "------" // put credentials here
-    secret_key = "------" // put credentials here
+    access_key = "-----" // put credentials here
+    secret_key = "-----" // put credentials here
     region = "eu-central-1"
 }
 
@@ -18,20 +18,12 @@ output "aws_vpc_id" {
 }
 
 ## Security Group ##
-#Do not forget to open the port 8888 it the script which creates a WebSite!!!#
 resource "aws_security_group" "terraform_private_sg" {
   description = "Allow limited inbound external traffic"
   vpc_id      = aws_vpc.terraform-vpc.id
   name        = "terraform_ec2_private_sg"
 
-  ingress {
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-    from_port   = 8888
-    to_port     = 8888 // Do not forget to open the port 8888 it the script which creates a WebSite!!!
-  }
-
-  ingress {
+    ingress {
     protocol    = "icmp"
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = -1
@@ -78,6 +70,13 @@ resource "aws_security_group" "terraform_private_sg" {
     cidr_blocks = ["0.0.0.0/0"]
     from_port   = 80
     to_port     = 80
+  }
+
+  ingress {
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 8888
+    to_port     = 8888
   }
 
   ingress {
@@ -256,7 +255,7 @@ resource "aws_lb_target_group_attachment" "tgattach2" {
 
 resource "aws_lb_listener" "listener" {
   load_balancer_arn       = aws_lb.test.arn
-      port                = 8888
+      port                = 80
       protocol            = "TCP"
       default_action {
         target_group_arn = aws_lb_target_group.test.arn
