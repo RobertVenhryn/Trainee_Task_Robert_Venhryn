@@ -110,7 +110,7 @@ output "aws_security_gr_id" {
 }
 
 ## Create Subnet ##
-resource "aws_subnet" "main_subnet" {
+resource "aws_subnet" "main_subnet_central_a" {
   vpc_id     = aws_vpc.terraform-vpc.id
   cidr_block = "10.0.2.0/28"
   availability_zone = "eu-central-1a"
@@ -120,8 +120,19 @@ resource "aws_subnet" "main_subnet" {
     Name = "MainSubnet"
   }
 }
+
+resource "aws_subnet" "main_subnet_central_b" {
+  vpc_id     = aws_vpc.terraform-vpc.id
+  cidr_block = "10.0.3.0/28"
+  availability_zone = "eu-central-1b"
+  map_public_ip_on_launch = true
+
+  tags = {
+    Name = "MainSubnet"
+  }
+}
 output "aws_subnet_subnet" {
-  value = aws_subnet.main_subnet.id
+  value = aws_subnet.main_subnet_central_b.id
 }
 
 
@@ -134,21 +145,38 @@ resource "aws_internet_gateway" "igw" {
   }
 }
 ## Route table for Public subnet ##
-resource "aws_route_table" "public" {
+resource "aws_route_table" "public_a" {
     vpc_id = aws_vpc.terraform-vpc.id
   route {
     cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
   tags = {
-    name = "Public Route Table"
+    name = "Public Route Table a"
+  }
+}
+
+resource "aws_route_table" "public_b" {
+    vpc_id = aws_vpc.terraform-vpc.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.igw.id
+  }
+  tags = {
+    name = "Public Route Table b"
   }
 }
 
 ## Association between Public Subnet and Public Route Table ##
 resource "aws_route_table_association" "public1" {
-  subnet_id = aws_subnet.main_subnet.id
-  route_table_id = aws_route_table.public.id
+  subnet_id = aws_subnet.main_subnet_central_a.id
+  route_table_id = aws_route_table.public_a.id
+}
+
+## Association between Public Subnet and Public Route Table ##
+resource "aws_route_table_association" "public2" {
+  subnet_id = aws_subnet.main_subnet_central_b.id
+  route_table_id = aws_route_table.public_b.id
 }
 
 ## My instances ##
@@ -159,7 +187,7 @@ resource "aws_instance" "terraform_inst1" {
   private_ip = "10.0.2.4"
   vpc_security_group_ids = [
     aws_security_group.terraform_private_sg.id]
-  subnet_id = aws_subnet.main_subnet.id
+  subnet_id = aws_subnet.main_subnet_central_a.id
   key_name = "terraform-demo"
   // create a pem key and put in the same folder
   associate_public_ip_address = true
@@ -184,9 +212,9 @@ resource "aws_instance" "terraform_inst1" {
 resource "aws_instance" "terraform_inst2" {
     ami = "ami-0fbc0724a0721c688"
     instance_type = "t2.micro"
-    private_ip = "10.0.2.5"
+    private_ip = "10.0.3.5"
     vpc_security_group_ids =  [ aws_security_group.terraform_private_sg.id ]
-    subnet_id = aws_subnet.main_subnet.id
+    subnet_id = aws_subnet.main_subnet_central_b.id
     key_name               = "terraform-demo" // create a pem key and put in the same folder
     associate_public_ip_address = true
   #to run the code inside Windows Server 2019
@@ -213,9 +241,10 @@ resource "aws_lb" "test" {
   name               = "test-lb-tf"
   internal           = false
   load_balancer_type = "network"
-  subnets            = aws_subnet.main_subnet.*.id
+  subnets            = [aws_subnet.main_subnet_central_a.id, aws_subnet.main_subnet_central_b.id]
 
   enable_deletion_protection = false
+  enable_cross_zone_load_balancing = true
 
   tags = {
     Environment = "test"
