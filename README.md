@@ -8,9 +8,7 @@ Terraform file you can find above. The is the beginning:
 
 ![Screenshot_1](https://user-images.githubusercontent.com/75696130/113060587-86b63f00-91b9-11eb-9b9b-7914ee3fe2a9.png)
 
-![Screenshot_2](https://user-images.githubusercontent.com/75696130/113060638-9897e200-91b9-11eb-95bf-94ca47987dcc.png)
-
-After that, I run my mega script: .\site_creating.ps1 (it will be above in the folder, so you can see it). there are mistakes because I delete folders that don't exist yet. It doesn't cause any issues.
+After that, I run my script: .\site_creating.ps1 (it will be above in the folder, so you can see it). there are mistakes because I delete folders that don't exist yet. It doesn't cause any issues.
 
 ![Screenshot_4](https://user-images.githubusercontent.com/75696130/113061280-76529400-91ba-11eb-8f51-d29d01555446.png)
 
@@ -50,6 +48,6 @@ The link:
 http://test-lb-tf-b712bae574484033.elb.eu-central-1.amazonaws.com/
 
 
-![Screenshot_9](https://user-images.githubusercontent.com/75696130/113743706-a47d2a00-970c-11eb-8fe0-4a53789716f6.png)
+![Screenshot_9](https://user-images.githubusercontent.com/75696130/113748112-c678ab80-9710-11eb-8b2d-029085359a82.png)
 
 ![Screenshot_10](https://user-images.githubusercontent.com/75696130/113743732-aa730b00-970c-11eb-91d6-b8a79de1e19d.png)
