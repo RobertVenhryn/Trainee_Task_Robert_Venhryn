@@ -41,13 +41,13 @@ Configuration of instance:
 The names of the script and tf files are different because I saved them to push to git. The original are: example.tf and site_creating.ps1.
 I'll leave instances working to let you see them. I didn't add the task definition here. Tell me please if needed.
 ---------------------------------------------------------------------------------------------------------------------------------
+
+![Screenshot_9](https://user-images.githubusercontent.com/75696130/113748112-c678ab80-9710-11eb-8b2d-029085359a82.png)
+
+![Screenshot_10](https://user-images.githubusercontent.com/75696130/113743732-aa730b00-970c-11eb-91d6-b8a79de1e19d.png)
+
 Thank you for your attention)
 My network load balancer:   
 
 The link:
 http://test-lb-tf-b712bae574484033.elb.eu-central-1.amazonaws.com/
-
-
-![Screenshot_9](https://user-images.githubusercontent.com/75696130/113748112-c678ab80-9710-11eb-8b2d-029085359a82.png)
-
-![Screenshot_10](https://user-images.githubusercontent.com/75696130/113743732-aa730b00-970c-11eb-91d6-b8a79de1e19d.png)
