@@ -28,16 +28,16 @@ Finally, the script has done its job:
 
 And we've got our WebSite:
 
-![Screenshot_6](https://user-images.githubusercontent.com/75696130/113508763-82dc4100-955a-11eb-86ac-ac4795a60dd2.png)
+![Screenshot_6](https://user-images.githubusercontent.com/75696130/113743245-228d0100-970c-11eb-90ae-47eba8878950.png)
 
 
-Turning back to the load balancer and targets, they are healthy now:
+Turning back to the load balancer and targets. They are in different availability zones:
 
 ![Screenshot_7](https://user-images.githubusercontent.com/75696130/113304479-be80cc00-930a-11eb-9eb9-e65825c80910.png)
 
 Configuration of instance:
 
-![Screenshot_8](https://user-images.githubusercontent.com/75696130/113508779-a0a9a600-955a-11eb-9e0f-d38289cfe1df.png)
+![Screenshot_8](https://user-images.githubusercontent.com/75696130/113743600-84e60180-970c-11eb-948c-5ba2b4ca1f66.png)
 
 
 The names of the script and tf files are different because I saved them to push to git. The original are: example.tf and site_creating.ps1.
@@ -47,7 +47,9 @@ Thank you for your attention)
 My network load balancer:   
 
 The link:
-http://test-lb-tf-740451f005f3c398.elb.eu-central-1.amazonaws.com/
+http://test-lb-tf-b712bae574484033.elb.eu-central-1.amazonaws.com/
 
 
-![Screenshot_9](https://user-images.githubusercontent.com/75696130/113508807-c5058280-955a-11eb-8447-bef9f794097d.png)
+![Screenshot_9](https://user-images.githubusercontent.com/75696130/113743706-a47d2a00-970c-11eb-8fe0-4a53789716f6.png)
+
+![Screenshot_10](https://user-images.githubusercontent.com/75696130/113743732-aa730b00-970c-11eb-91d6-b8a79de1e19d.png)
